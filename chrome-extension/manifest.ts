@@ -149,6 +149,17 @@ const manifest = {
       js: ['content/index.iife.js'],
       run_at: 'document_idle',
     },
+    {
+      matches: ['*://*.yuanbao.tencent.com/*'],
+      js: ['content/index.iife.js'],
+      run_at: 'document_idle',
+    },
+  ],,
+    {
+      matches: ['*://yuanbao.tencent.com/*'],
+      js: ['content/index.iife.js'],
+      run_at: 'document_idle',
+    },
   ],
   // devtools_page: 'devtools/index.html',
   web_accessible_resources: [
