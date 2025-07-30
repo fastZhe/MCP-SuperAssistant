@@ -143,7 +143,7 @@ class PluginRegistry {
     }
 
     try {
-      debugger;
+
       // Validate plugin
       this.validatePlugin(plugin);
 

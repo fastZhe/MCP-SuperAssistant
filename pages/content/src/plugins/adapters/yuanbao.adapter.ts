@@ -30,7 +30,7 @@ export class YuanbaoAdapter extends BaseAdapterPlugin {
 
   constructor() {
     super();
-    debugger;
+
     console.log("init...");
     YuanbaoAdapter.instanceCount++;
     this.instanceId = YuanbaoAdapter.instanceCount;
@@ -57,7 +57,7 @@ export class YuanbaoAdapter extends BaseAdapterPlugin {
       this.context?.logger.warn(`Yuanbao adapter instance #${this.instanceId} already active, skipping re-activation`);
       return;
     }
-    debugger;
+
     await super.activate();
     this.context.logger.debug(`Activating Yuanbao adapter instance #${this.instanceId}...`);
 
@@ -119,7 +119,7 @@ export class YuanbaoAdapter extends BaseAdapterPlugin {
 
     let targetElement: HTMLElement | null = null;
 
-    debugger;
+
     if (options?.targetElement) {
       targetElement = options.targetElement;
     } else {
@@ -157,7 +157,7 @@ export class YuanbaoAdapter extends BaseAdapterPlugin {
       targetElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true }));
       targetElement.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
 
-      this.context.logger.debug(`Text inserted into textarea successfully. Original: ${currentText.length}, Added: ${text.length}, Total: ${newContent.length}`);
+      this.context.logger.debug(`Text inserted into textarea successfully. Added: ${text.length}, Total: ${newContent.length}`);
 
 
       this.emitExecutionCompleted('insertText', { text }, {
@@ -391,7 +391,7 @@ export class YuanbaoAdapter extends BaseAdapterPlugin {
     return new Promise((resolve, reject) => {
       let attempts = 0;
       const maxAttempts = 5;
-      debugger;
+
       const checkReady = () => {
         attempts++;
         const insertionPoint = this.findButtonInsertionPoint();
