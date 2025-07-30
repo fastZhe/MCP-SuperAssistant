@@ -25,6 +25,7 @@ import { SidebarPlugin } from './sidebar.plugin';
 import { ChatGPTAdapter } from './adapters/chatgpt.adapter';
 import { KimiAdapter } from './adapters/kimi.adapter';
 import { RemoteConfigPlugin } from './remote-config.plugin';
+import { YuanbaoAdapter } from './adapters';
 
 // Types for lazy initialization
 interface AdapterFactory {
@@ -142,6 +143,7 @@ class PluginRegistry {
     }
 
     try {
+      debugger;
       // Validate plugin
       this.validatePlugin(plugin);
 
@@ -792,6 +794,28 @@ class PluginRegistry {
           },
         },
       });
+
+      this.registerAdapterFactory({
+        name: 'yuanbao-adater',
+        version: '1.0.0',
+        type: 'website-adapter',
+        hostnames: ['yuanbao.tencent.com'],
+        capabilities: ['text-insertion', 'form-submission', 'file-attachment'],
+        create: () => new YuanbaoAdapter(),
+        config: {
+          id: 'yuanbao-adater',
+          name: 'yuanbao Adapter',
+          description: 'Specialized adapter for yuanbao Chat with chat input, form submission, and file attachment support',
+          version: '1.0.0',
+          enabled: true,
+          priority: 5,
+          settings: {
+            logLevel: 'info',
+            urlCheckInterval: 1000,
+          },
+        },
+      });
+
 
       // Register GrokAdapter factory for Grok (X.com/Grok.com)
       this.registerAdapterFactory({

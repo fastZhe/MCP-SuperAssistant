@@ -236,6 +236,7 @@ export class SidebarPlugin implements AdapterPlugin {
     }
 
     try {
+      console.log("side bar inited");
       this.context?.logger.debug('[SidebarPlugin] Initializing sidebar manager...');
       
       // Determine site type from current hostname
@@ -249,8 +250,9 @@ export class SidebarPlugin implements AdapterPlugin {
       (window as any).activeSidebarManager = this.sidebarManager;
       
       this.context?.logger.debug(`[SidebarPlugin] Sidebar manager initialized for site type: ${siteType}`);
-      
+      console.log("side bar inited success");
     } catch (error) {
+      console.log("side bar inited failed");
       this.context?.logger.error('[SidebarPlugin] Failed to initialize sidebar manager:', error);
       throw error;
     }

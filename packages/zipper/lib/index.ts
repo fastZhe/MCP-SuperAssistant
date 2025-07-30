@@ -34,7 +34,7 @@ function streamFileToZip(
   createReadStream(absPath)
     .on('data', chunk => {
       const uint8Chunk = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
-      data.push(uint8Chunk, false);
+      data.push(uint8Chunk as Uint8Array, false);
     })
     .on('end', () => data.push(new Uint8Array(0), true))
     .on('error', error => {

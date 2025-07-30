@@ -622,6 +622,7 @@ const ToggleItem: React.FC<ToggleItemProps> = ({ id, label, checked, disabled, o
 export const MCPPopover: React.FC<MCPPopoverProps> = ({ toggleStateManager, adapterButtonConfig, adapterName }) => {
   const isDarkMode = useThemeDetector();
 
+  debugger;
   // Use Zustand hooks for adapter and user preferences
   const { plugin: activePlugin, insertText, attachFile, isReady: isAdapterActive } = useCurrentAdapter();
   const { preferences, updatePreferences } = useUserPreferences();

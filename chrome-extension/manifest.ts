@@ -45,6 +45,7 @@ const manifest = {
     '*://*.github.com/*',
     '*://*.copilot.github.com/*',
     '*://*.kimi.com/*',
+    '*://yuanbao.tencent.com/*',
   ],
 
   permissions: ['storage', 'clipboardWrite'],
@@ -149,12 +150,6 @@ const manifest = {
       js: ['content/index.iife.js'],
       run_at: 'document_idle',
     },
-    {
-      matches: ['*://*.yuanbao.tencent.com/*'],
-      js: ['content/index.iife.js'],
-      run_at: 'document_idle',
-    },
-  ],,
     {
       matches: ['*://yuanbao.tencent.com/*'],
       js: ['content/index.iife.js'],
